@@ -1,0 +1,6 @@
+https://trackmusiccareers.netlify.app/* https://trackmusiccareers.com/:splat 301!
+https://www.trackmusiccareers.com/* https://trackmusiccareers.com/:splat 301!
+http://trackmusiccareers.com/* https://trackmusiccareers.com/:splat 301!
+http://www.trackmusiccareers.com/* https://trackmusiccareers.com/:splat 301!
+
+/* /index.html 200

@@ -1,0 +1,54 @@
+<svg viewBox="-40 0 980 320" width="980" height="320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @font-face {
+        font-family: "TRACK Logo Oswald";
+        src: url("../fonts/Oswald-Medium.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 500;
+      }
+    </style>
+
+    <filter id="residue" x="-12%" y="-40%" width="124%" height="180%">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+
+    <filter id="wear" x="-8%" y="-30%" width="116%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="0.8" result="soft" />
+
+      <feTurbulence type="fractalNoise" baseFrequency="0.025 0.042" numOctaves="4" seed="5" result="edgeNoise" />
+      <feDisplacementMap in="soft" in2="edgeNoise" scale="3.2" xChannelSelector="R" yChannelSelector="G" result="roughened" />
+
+      <feTurbulence type="fractalNoise" baseFrequency="0.042" numOctaves="3" seed="11" result="patchNoise" />
+      <feColorMatrix in="patchNoise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  22 0 0 0 -3.5" result="patchMask" />
+      <feComposite in="roughened" in2="patchMask" operator="in" result="patched" />
+
+      <feTurbulence type="fractalNoise" baseFrequency="0.86" numOctaves="2" seed="23" result="crackleNoise" />
+      <feColorMatrix in="crackleNoise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  8 0 0 0 -1" result="crackleMask" />
+      <feComposite in="patched" in2="crackleMask" operator="in" />
+    </filter>
+  </defs>
+
+  <text
+    x="450" y="240"
+    text-anchor="middle"
+    dominant-baseline="alphabetic"
+    font-family="'TRACK Logo Oswald', Oswald, 'Arial Narrow', Arial, sans-serif"
+    font-size="210"
+    letter-spacing="14"
+    fill="#D34E36"
+    opacity="0.09"
+    filter="url(#residue)"
+  >T.R.A.C.K</text>
+
+  <text
+    x="450" y="240"
+    text-anchor="middle"
+    dominant-baseline="alphabetic"
+    font-family="'TRACK Logo Oswald', Oswald, 'Arial Narrow', Arial, sans-serif"
+    font-size="210"
+    letter-spacing="14"
+    fill="#EFECE6"
+    filter="url(#wear)"
+  >T.R.A.C.K</text>
+</svg>
